@@ -15,16 +15,16 @@ SRC  = ../src
 PYF  = ../py
 
 # Healpix location:
-#HEALDIR  =  /mnt/c/Users/arthu/Work/lib/Healpix_3.60/
-#HEALDATA = $(HEALDIR)/data
-#CXXHEAL  = -I$(HEALDIR)/include/healpix_cxx
-#LDHEAL   = -L$(HEALDIR)/lib
+HEALDIR  =  /home/mehdi/local
+HEALDATA = /home/mehdi/github/Healpix_3.80/data
+CXXHEAL  = -I$(HEALDIR)/include/healpix_cxx
+LDHEAL   = -L$(HEALDIR)/lib64
 
 # Healpix location (for versions <=3.50):
-HEALDIR  =  /home/jayesh/Documents/Euclid/Software/Healpix_3.50
-HEALDATA = $(HEALDIR)/data
-CXXHEAL  = -I$(HEALDIR)/src/cxx/generic_gcc/include
-LDHEAL   = -L$(HEALDIR)/src/cxx/generic_gcc/lib
+#HEALDIR  =  /home/mehdi/github/Healpix_3.80
+#HEALDATA = $(HEALDIR)/data
+#CXXHEAL  = -I$(HEALDIR)/src/cxx/Healpix_cxx/
+#LDHEAL   = -L$(HEALDIR)/src/cxx/Healpix_cxx/.lib64
 
 # Location of some 'standard' libraries that might be required if not included by default:
 LIB1 = -I/usr/include
@@ -32,10 +32,10 @@ LIB2 = -I/usr/include/x86_64-linux-gnu
 
 # Location of other headers and libraries (if not in a default location):
 # Uncomment and change path if required:
-#CXXFITS  = -I/mnt/c/User/arthu/Work/lib/cfitsio/
-#LDFITS   = -L/mnt/c/User/arthu/Work/lib/cfitsio/
-#CXXGSL   = -I/path/to/gsl/headers/folder
-#LDGSL    = -L/path/to/gsl/libraries/folder
+CXXFITS  = -I/home/mehdi/local/include
+LDFITS   = -L/home/mehdi/local/lib64
+CXXGSL   = -I/home/mehdi/local/include
+LDGSL    = -L/home/mehdi/local/lib64
 
 ###########################################################
 ### Library and header locations for specific computers ###
@@ -124,7 +124,6 @@ endif
 # Other compiler flags:
 CXXOMP = -fopenmp
 
-
 # Libraries to link:
 
 # Static Healpix library (force its use to avoid the need to set LD_LIBRARY_PATH to $(HEALDIR)/lib):
@@ -146,8 +145,10 @@ endif
 
 # Dynamic defines (#define that are set during compilation time, by passing instruction to compiler):
 VCONTROL   = -D FLASKCOMMIT=\"$(FLASKCOMMIT)\"
-DEFCOMPLEX = -D USEXCOMPLEX=$(USEXCOMPLEX)
-DEFMAP2TGA = -D USEMAP2TGA=$(USEMAP2TGA)
+#DEFCOMPLEX = -D USEXCOMPLEX=$(USEXCOMPLEX)
+DEFCOMPLEX = -D USEXCOMPLEX=0
+#DEFMAP2TGA = -D USEMAP2TGA=$(USEMAP2TGA)
+DEFMAP2TGA = -D USEMAP2TGA=0
 
 
 #############################
