@@ -1,7 +1,7 @@
 
-ver=v4
+ver=v0
 
-for iseed in {101..1000};
+for iseed in {1..1000};
 do
   MAPOUT=/home/mehdi/data/lognormal/${ver}/lrg-${iseed}-
   CATOUT=/home/mehdi/data/lognormal/${ver}/lrg-cat-${iseed}.fits
