@@ -1,4 +1,6 @@
-
+# you need to set LD_LIBRARY_PATH appropriately, e.g.,
+# export LD_LIBRARY_PATH=/home/mehdi/local/lib64:${LD_LIBRARY_PATH}
+# where you have healpix_cxx, gsl, fitsio, and sharp library files
 ver=v1
 tag=$1
 
